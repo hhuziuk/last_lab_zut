@@ -29,7 +29,6 @@ void placeShips(Board &board, const vector<Ship *> &ships, bool isPlayer) {
         cout << "Enter the direction (H for horizontal, V for vertical): ";
         cin >> direction;
 
-        // Валідація введених даних
         while (cin.fail() || !isValidCoordinate(x, y) ||
                (direction != 'H' && direction != 'V')) {
           cin.clear();
