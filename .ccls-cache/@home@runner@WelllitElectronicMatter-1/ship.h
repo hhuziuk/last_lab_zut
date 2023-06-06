@@ -9,12 +9,6 @@ public:
   virtual int getLength() const = 0;
 };
 
-class AircraftCarrier : public Ship {
-public:
-  char getSymbol() const override { return 'A'; }
-  int getLength() const override { return 5; }
-};
-
 class Battleship : public Ship {
 public:
   char getSymbol() const override { return 'B'; }

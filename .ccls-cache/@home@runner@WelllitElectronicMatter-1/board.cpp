@@ -14,7 +14,7 @@ std::ostream &operator<<(std::ostream &os, const Board &board) {
     for (int x = 0; x < Board::SIZE; ++x) {
       if (board.hits[y][x]) {
         if (board.grid[y][x] != nullptr) {
-          os << "\033[1;31m" << board.grid[y][x]->getSymbol() << "\033[0m";
+          os << "\033[1;37m" << board.grid[y][x]->getSymbol() << "\033[0m";
         } else {
           os << "\033[1;34mX\033[0m";
         }
@@ -42,37 +42,19 @@ void Board::clear() {
   }
 }
 
-bool Board::placeShip(int x, int y, Ship *ship, char direction) {
-  int length = ship->getLength();
-  if (canPlaceShip(x, y, length, direction)) {
-    for (int i = 0; i < length; ++i) {
-      int newX = x;
-      int newY = y;
-      if (direction == 'H') {
-        newX += i;
-      } else if (direction == 'V') {
-        newY += i;
-      }
-      grid[newY][newX] = ship;
-    }
-    return true;
-  }
-  return false;
-}
-
 void Board::print(bool showShips) const {
-  std::cout << " \033[1;31m0 1 2 3 4 5 6 7 8 9\033[0m" << std::endl;
+  std::cout << " \033[1;31m 0 1 2 3 4 5 6 7 8 9\033[0m" << std::endl;
   for (int y = 0; y < SIZE; ++y) {
     std::cout << "\033[1;31m" << y << " \033[0m";
     for (int x = 0; x < SIZE; ++x) {
       if (hits[y][x]) {
         if (grid[y][x] != nullptr) {
-          std::cout << "\033[1;31m" << grid[y][x]->getSymbol() << " ";
+          std::cout << "\033[1;37m" << grid[y][x]->getSymbol() << " ";
         } else {
           std::cout << "\033[1;31mX ";
         }
       } else if (showShips && grid[y][x] != nullptr) {
-        std::cout << "\033[1;31m" << grid[y][x]->getSymbol() << " ";
+        std::cout << "\033[1;37m" << grid[y][x]->getSymbol() << " ";
       } else {
         std::cout << "\033[1;32m~ ";
       }
@@ -183,6 +165,26 @@ bool Board::canPlaceShip(int x, int y, int length, char direction) const {
       if (x < SIZE - 1 && grid[y + i][x + 1] != nullptr) {
         return false;
       }
+    }
+  }
+
+  return true;
+}
+
+bool Board::placeShip(int x, int y, Ship* ship, char direction) {
+  // Перевірка чи можна розмістити корабель в даному місці та напрямку
+  if (!canPlaceShip(x, y, ship->getLength(), direction)) {
+    return false;
+  }
+
+  // Розміщення корабля на дошці
+  if (direction == 'H') {
+    for (int i = 0; i < ship->getLength(); ++i) {
+      grid[y][x + i] = ship;
+    }
+  } else if (direction == 'V') {
+    for (int i = 0; i < ship->getLength(); ++i) {
+      grid[y + i][x] = ship;
     }
   }
 

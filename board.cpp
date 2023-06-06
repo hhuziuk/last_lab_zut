@@ -14,7 +14,7 @@ std::ostream &operator<<(std::ostream &os, const Board &board) {
     for (int x = 0; x < Board::SIZE; ++x) {
       if (board.hits[y][x]) {
         if (board.grid[y][x] != nullptr) {
-          os << "\033[1;31m" << board.grid[y][x]->getSymbol() << "\033[0m";
+          os << "\033[1;37m" << board.grid[y][x]->getSymbol() << "\033[0m";
         } else {
           os << "\033[1;34mX\033[0m";
         }
@@ -49,12 +49,12 @@ void Board::print(bool showShips) const {
     for (int x = 0; x < SIZE; ++x) {
       if (hits[y][x]) {
         if (grid[y][x] != nullptr) {
-          std::cout << "\033[1;31m" << grid[y][x]->getSymbol() << " ";
+          std::cout << "\033[1;37m" << grid[y][x]->getSymbol() << " ";
         } else {
           std::cout << "\033[1;31mX ";
         }
       } else if (showShips && grid[y][x] != nullptr) {
-        std::cout << "\033[1;31m" << grid[y][x]->getSymbol() << " ";
+        std::cout << "\033[1;37m" << grid[y][x]->getSymbol() << " ";
       } else {
         std::cout << "\033[1;32m~ ";
       }
