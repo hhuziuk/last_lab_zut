@@ -2,7 +2,6 @@
 #include <fstream>
 
 Board::Board() {
-  // Initialize the grid and hits matrices
   grid.resize(Board::SIZE, std::vector<Ship *>(Board::SIZE, nullptr));
   hits.resize(Board::SIZE, std::vector<bool>(Board::SIZE, false));
 }
@@ -33,7 +32,6 @@ std::ostream &operator<<(std::ostream &os, const Board &board) {
 }
 
 void Board::clear() {
-  // Cleanup the grid and hits matrices
   for (int y = 0; y < SIZE; ++y) {
     for (int x = 0; x < SIZE; ++x) {
       grid[y][x] = nullptr;
@@ -172,12 +170,10 @@ bool Board::canPlaceShip(int x, int y, int length, char direction) const {
 }
 
 bool Board::placeShip(int x, int y, Ship* ship, char direction) {
-  // Перевірка чи можна розмістити корабель в даному місці та напрямку
   if (!canPlaceShip(x, y, ship->getLength(), direction)) {
     return false;
   }
 
-  // Розміщення корабля на дошці
   if (direction == 'H') {
     for (int i = 0; i < ship->getLength(); ++i) {
       grid[y][x + i] = ship;

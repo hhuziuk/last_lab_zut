@@ -5,6 +5,9 @@
 using namespace std;
 
 Game::Game() {
+  playerBoard.saveToFile("player_board.txt", true);
+  computerBoard.saveToFile("computer_board.txt", false);
+
   playerShips = {&playerBattleship, &playerCruiser,   &playerCruiser,
                  &playerDestroyer,  &playerDestroyer, &playerDestroyer,
                  &playerSubmarine,  &playerSubmarine, &playerSubmarine,
@@ -30,7 +33,7 @@ void Game::start() {
 
     cout << "Computer Board:" << endl;
     computerBoard.print(false);
-    cout << "\033[0m" << endl; // Додано символ скидання форматування
+    cout << "\033[0m" << endl; 
 
     if (!playerGetsExtraTurn) {
       int x, y;

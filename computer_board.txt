@@ -1,11 +1,11 @@
  0 1 2 3 4 5 6 7 8 9
-0 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
-1 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
-2 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
-3 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
-4 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
-5 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
-6 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
-7 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
-8 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
-9 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+0 C X X X X X X X X X 
+1 C X X X X X X X X X 
+2 C X X X X X X X S X 
+3 X X X B X X S X X X 
+4 X X X B X S X D X X 
+5 C X X B X X X D X X 
+6 C X X B X X X X X X 
+7 C X X X X X X ~ X X 
+8 X X X D D X X D X X 
+9 X X S X X X X D X X 
