@@ -1,4 +1,5 @@
-#pragma once
+#ifndef SHIP_H
+#define SHIP_H
 
 #include <ostream>
 
@@ -32,3 +33,5 @@ public:
   char getSymbol() const override { return 'S'; }
   int getLength() const override { return 1; }
 };
+
+#endif
