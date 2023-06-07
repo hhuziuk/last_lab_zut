@@ -30,4 +30,4 @@ private:
   bool computerGetsExtraTurn;
 };
 
-#endif  // GAME_H
+#endif  
