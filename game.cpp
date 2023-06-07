@@ -5,9 +5,6 @@
 using namespace std;
 
 Game::Game() {
-  playerBoard.saveToFile("player_board.txt", true);
-  computerBoard.saveToFile("computer_board.txt", false);
-
   playerShips = {&playerBattleship, &playerCruiser,   &playerCruiser,
                  &playerDestroyer,  &playerDestroyer, &playerDestroyer,
                  &playerSubmarine,  &playerSubmarine, &playerSubmarine,
