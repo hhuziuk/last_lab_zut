@@ -1,4 +1,5 @@
-#pragma once
+#ifndef BOARD_H
+#define BOARD_H
 
 #include <iostream>
 #include <ostream>
@@ -32,3 +33,5 @@ private:
 
   bool canPlaceShip(int x, int y, int length, char direction) const;
 };
+
+#endif  
